@@ -44,5 +44,7 @@ group :development, :test do
 
   gem 'capybara'
 
+  gem 'pry'
+
   gem 'bcrypt-ruby', '~> 3.1.5', require: 'bcrypt'
 end
