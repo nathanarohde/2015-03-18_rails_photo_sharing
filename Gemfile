@@ -43,4 +43,6 @@ group :development, :test do
   gem 'spring'
 
   gem 'capybara'
+
+  gem 'bcrypt-ruby', '~> 3.1.5', require: 'bcrypt'
 end
