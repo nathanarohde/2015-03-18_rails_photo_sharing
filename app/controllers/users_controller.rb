@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:show]
 
   def index
-    @users = User.all
+    @photos = Photo.all.shuffle
   end
 
   def show
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:notice] = 'Welcome to the site!'
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new

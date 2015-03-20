@@ -7,18 +7,14 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
-    @photo = params[:title][:photo]
+   photo = @user.photos.new(photo_params)
+   if photo.save
+     flash[:notice] = "File has been uploaded successfully"
+   else
+     flash[:error] = "File not created."
+   end
+   redirect_to user_path(@user)
   end
-
-  #  post = @user.photos.new(photo_params)
-  #  if photo.save
-  #    flash[:notice] = "File has been uploaded successfully"
-  #  else
-  #    flash[:error] = "File not created."
-  #  end
-  #  redirect_to user_path(@user)
-  # end
 
   def destroy
     @photo.photo = nil
